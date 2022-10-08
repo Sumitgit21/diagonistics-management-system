@@ -1,12 +1,12 @@
 import React from "react";
 import { Row, Col, Image, Form, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "../../components/Card";
 
 // img
 import auth2 from "../../../assets/images/auth/02.png";
 const Recoverpw = () => {
-  let history = useHistory();
+  // let history = useHistory();
   return (
     <>
       <section className="login-content">
@@ -97,7 +97,7 @@ const Recoverpw = () => {
                     </Col>
                   </Row>
                   <Button
-                    onClick={() => history.push("/auth/sign-in")}
+                    // onClick={() => history.push("/auth/sign-in")}
                     className="mt-3"
                     type="button"
                     variant="primary"

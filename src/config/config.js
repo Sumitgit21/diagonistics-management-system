@@ -1,7 +1,7 @@
 const appConfigProd = {
-  appName: "Diptodiagnostic Pvt. Ltd.",
+  appName: "Dipto Diagnostic Pvt. Ltd.",
   apiConfig: {
-    apiBaseUrl: "",
+    apiBaseUrl: "http://developer.diptodiagnostic.com/api/",
   },
 };
 

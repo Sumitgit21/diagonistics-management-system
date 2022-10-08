@@ -1,6 +1,6 @@
 import React from "react";
 import Index from "../pages/index";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 // // user
 // import UserProfile from "../views/dashboard/app/user-profile";
@@ -39,14 +39,16 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 // import Timeline from "../views/dashboard/special-pages/timeline";
 // import Calender from "../views/dashboard/special-pages/calender";
 // //admin
-// import Admin from "../views/dashboard/admin/admin";
+
+import Admin from "../pages/admin/admin";
 
 const DefaultRouter = () => {
   return (
     <TransitionGroup>
       <CSSTransition classNames="fadein" timeout={300}>
-        <Switch>
-          <Route path="/dashboard" exact component={Index} />
+        <Routes>
+          <Route path="/dashboard"  component={<Index/>} />
+          {/* <Route path="/dashboard/admin"  component={<Admin/>}/> */}
           {/* user */}
           {/* <Route path="/dashboard/app/user-profile"     exact component={UserProfile} />
                     <Route path="/dashboard/app/user-add"         exact component={UserAdd}/>
@@ -81,7 +83,7 @@ const DefaultRouter = () => {
                      <Route path="/dashboard/extra/terms-of-service" exact component={TermsofService}/> */}
           {/*admin*/}
           {/* <Route path="/dashboard/admin/admin" exact component={Admin}/> */}
-        </Switch>
+        </Routes>
       </CSSTransition>
     </TransitionGroup>
   );

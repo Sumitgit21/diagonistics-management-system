@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Image, Form, Button, ListGroup } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "../../components/Card";
 
 // img
@@ -11,7 +11,7 @@ import linkedin from "../../../assets/images/brands/li.svg";
 import auth5 from "../../../assets/images/auth/05.png";
 
 const SignUp = () => {
-  let history = useHistory();
+  // let history = useHistory();
   return (
     <>
       <section className="login-content">
@@ -174,7 +174,7 @@ const SignUp = () => {
                       </Row>
                       <div className="d-flex justify-content-center">
                         <Button
-                          onClick={() => history.push("/dashboard")}
+                          // onClick={() => history.push("/dashboard")}
                           type="button"
                           variant="primary"
                         >

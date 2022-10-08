@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Image, Form, Button } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Card from "../../components/Card";
 
 // img
@@ -8,7 +8,7 @@ import avatars1 from "../../../assets/images/avatars/01.png";
 import auth1 from "../../../assets/images/auth/04.png";
 
 const LockScreen = () => {
-  let history = useHistory();
+  // let history = useHistory();
   return (
     <>
       <section className="login-content">
@@ -91,7 +91,7 @@ const LockScreen = () => {
                     </Col>
                   </Row>
                   <Button
-                    onClick={() => history.push("/dashboard")}
+                    // onClick={() => history.push("/dashboard")}
                     type="button"
                     variant="btn btn-primary"
                   >

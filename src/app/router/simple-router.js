@@ -1,6 +1,6 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import "../pages/";
+import { Routes, Route } from "react-router-dom";
+// import "../pages/";
 // auth
 import ConfirmMail from "../pages/auth/confirm-mail";
 import LockScreen from "../pages/auth/lock-screen";
@@ -15,18 +15,18 @@ import Maintenance from "../pages/error/maintenance";
 const SimpleRouter = () => {
   return (
     <>
-      <Switch>
-        {/* auth */}
-        <Route exact path="/auth/confirm-mail" component={ConfirmMail} />
-        <Route exact path="/auth/lock-screen" component={LockScreen} />
-        <Route exact path="/auth/recoverpw" component={Recoverpw} />
-        <Route exact path="/auth/sign-in" component={SignIn} />
-        <Route exact path="/auth/sign-up" component={SignUp} />
-        {/* error */}
-        <Route exact path="/errors/error404" component={Error404} />
-        <Route exact path="/errors/error500" component={Error500} />
-        <Route exact path="/errors/maintenance" component={Maintenance} />
-      </Switch>
+      {/* <Routes> */}
+      {/* auth */}
+      <Route exact path="/auth/confirm-mail" element={<ConfirmMail />} />
+      <Route exact path="/auth/lock-screen" element={<LockScreen />} />
+      <Route exact path="/auth/recoverpw" element={<Recoverpw />} />
+      <Route exact path="/auth/sign-in" element={<SignIn />} />
+      <Route exact path="/auth/sign-up" element={<SignUp />} />
+      {/* error */}
+      <Route exact path="/errors/error404" element={<Error404 />} />
+      <Route exact path="/errors/error500" element={<Error500 />} />
+      <Route exact path="/errors/maintenance" element={<Maintenance />} />
+      {/* </Routes> */}
     </>
   );
 };

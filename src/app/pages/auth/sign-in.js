@@ -1,18 +1,59 @@
-import React from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { Row, Col, Image, Form, Button, ListGroup } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { useLocation, useNavigate, useParams } from "react-router-dom";
+import { loginWithUserName } from "../../store/action";
 import Card from "../../components/Card";
 
-// img
-import facebook from "../../../assets/images/brands/fb.svg";
-import google from "../../../assets/images/brands/gm.svg";
-import instagram from "../../../assets/images/brands/im.svg";
-import linkedin from "../../../assets/images/brands/li.svg";
+// // img
+// import facebook from "../../../assets/images/brands/fb.svg";
+// import google from "../../../assets/images/brands/gm.svg";
+// import instagram from "../../../assets/images/brands/im.svg";
+// import linkedin from "../../../assets/images/brands/li.svg";
+
 import auth1 from "../../../assets/images/auth/01.png";
 import appConfig from "../../../config/config";
 
 const SignIn = () => {
-  let history = useHistory();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPasssword] = useState("");
+  const [isLoading, setIsLoading] = useState("");
+
+  const onUserNameChange = useCallback(
+    (e) => {
+      console.log(":::" + e.target.value);
+      setUsername(e.target.value);
+    },
+    [username]
+  );
+
+  const onPasswordChange = useCallback(
+    (e) => {
+      console.log(":::" + e.target.value);
+      setPasssword(e.target.value);
+    },
+    [password]
+  );
+
+  const onLoginBtnClick = () => {
+    if (!username) {
+      alert("Please enter username");
+    } else if (!password) {
+      alert("Please enter password");
+    } else {
+      const temp_payload = { username: username, password: password };
+      dispatch(
+        loginWithUserName(temp_payload, (data) => {
+          navigate("/dashboard");
+        })
+      );
+    }
+  };
+
   return (
     <>
       <section className="login-content">
@@ -78,15 +119,17 @@ const SignIn = () => {
                       <Row>
                         <Col lg="12">
                           <Form.Group className="form-group">
-                            <Form.Label htmlFor="email" className="">
-                              Email
+                            <Form.Label htmlFor="Username" className="">
+                              Username
                             </Form.Label>
                             <Form.Control
                               type="email"
                               className=""
-                              id="email"
-                              aria-describedby="email"
+                              id="Username"
+                              aria-describedby="Username"
                               placeholder=" "
+                              value={username}
+                              onChange={onUserNameChange}
                             />
                           </Form.Group>
                         </Col>
@@ -101,11 +144,13 @@ const SignIn = () => {
                               id="password"
                               aria-describedby="password"
                               placeholder=" "
+                              value={password}
+                              onChange={onPasswordChange}
                             />
                           </Form.Group>
                         </Col>
                         <Col lg="12" className="d-flex justify-content-between">
-                          <Form.Check className="form-check mb-3">
+                          {/* <Form.Check className="form-check mb-3">
                             <Form.Check.Input
                               type="checkbox"
                               id="customCheck1"
@@ -113,20 +158,20 @@ const SignIn = () => {
                             <Form.Check.Label htmlFor="customCheck1">
                               Remember Me
                             </Form.Check.Label>
-                          </Form.Check>
+                          </Form.Check> */}
                           <Link to="/auth/recoverpw">Forgot Password?</Link>
                         </Col>
                       </Row>
                       <div className="d-flex justify-content-center">
                         <Button
-                          onClick={() => history.push("/dashboard")}
+                          onClick={onLoginBtnClick}
                           type="button"
                           variant="btn btn-primary"
                         >
                           Sign In
                         </Button>
                       </div>
-                      <p className="text-center my-3">
+                      {/* <p className="text-center my-3">
                         or sign in with other accounts?
                       </p>
                       <div className="d-flex justify-content-center">
@@ -161,7 +206,7 @@ const SignIn = () => {
                         <Link to="/auth/sign-up" className="text-underline">
                           Click here to sign up.
                         </Link>
-                      </p>
+                      </p> */}
                     </Form>
                   </Card.Body>
                 </Card>

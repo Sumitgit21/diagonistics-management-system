@@ -20,6 +20,8 @@ import SwiperCore, { Navigation } from "swiper";
 // Import Swiper styles
 import "swiper/swiper-bundle.min.css";
 import "swiper/components/navigation/navigation.scss";
+import useRedirect from "../hooks/useRedirect";
+import { useNavigate } from "react-router-dom";
 
 // store
 import {
@@ -72,6 +74,13 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const Index = (props) => {
+  const navigate = useNavigate();
+  // useEffect(() => {
+    // setTimeout(() => {
+    //   navigate("/auth/sign-in");
+    // }, 3000);
+  // }, []);
+
   useEffect(() => {
     AOS.init({
       startEvent: "DOMContentLoaded",
@@ -297,31 +306,7 @@ const Index = (props) => {
       <Row>
         <Col md="12" lg="12">
           <Row className="row-cols-1">
-            <div className="overflow-hidden d-slider1 ">
-              <Circularprogressbar
-                stroke={props.colorprimarymode}
-                Linecap="rounded"
-                trailstroke="#ddd"
-                strokewidth="4px"
-                width="60px"
-                height="60px"
-                value={30}
-                style={{ width: 60, height: 60 }}
-                id="circle-progress-07"
-              >
-                <svg
-                  className=""
-                  width="24px"
-                  height="24px"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fill="currentColor"
-                    d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z"
-                  />
-                </svg>
-              </Circularprogressbar>
-            </div>
+            <div className="overflow-hidden d-slider1 ">Loading...</div>
           </Row>
         </Col>
       </Row>
