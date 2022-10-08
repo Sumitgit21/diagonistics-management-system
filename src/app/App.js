@@ -1,26 +1,17 @@
-import React from "react";
-import "./App.scss";
-import AppRoutes from "./routes";
-import Navbar from "../app/components/shared/Navbar";
-import Sidebar from "../app/components/shared/Sidebar";
-import Footer from "../app/components/shared/Footer";
+//router
+import IndexRouters from "./router/index";
+
+//scss
+import "../assets/scss/hope-ui.scss";
+import "../assets/scss/dark.scss";
+import "../assets/scss/rtl.scss";
+import "../assets/scss/custom.scss";
+import "../assets/scss/customizer.scss";
 
 function App() {
-  let navbarComponent = <Navbar />;
-  let sidebarComponent = <Sidebar />;
-  let footerComponent = <Footer />;
   return (
-    <div className="container-scroller">
-      {/* {sidebarComponent} */}
-      <div className="container-fluid page-body-wrapper">
-        {/* {navbarComponent} */}
-        <div className="main-panel">
-          <div className="content-wrapper">
-            <AppRoutes />
-          </div>
-          {footerComponent}+
-        </div>
-      </div>
+    <div className="App">
+      <IndexRouters />
     </div>
   );
 }
