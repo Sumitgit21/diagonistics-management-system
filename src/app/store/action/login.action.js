@@ -12,7 +12,7 @@ export const loginWithUserName = (_payload, callback) => {
       data: _payload,
     })
       .then((response) => {
-        if (response.status == 200) {
+        if (response?.status == 200) {
           callback(response.data);
         }
       })
@@ -21,25 +21,3 @@ export const loginWithUserName = (_payload, callback) => {
       });
   };
 };
-// export const loginWithEmail = (formData, callback) => {
-//   return async (dispatch) => {
-//     axios({
-//       method: "POST",
-//       url: `${url}Authrjs/loginEmail`,
-//       headers: {
-//         version: `rjsw ${apiVersion}`,
-//       },
-//       data: formData,
-//     })
-//       .then((response) => {
-//         if (response.data) {
-//           callback(response.data);
-//         }
-//       })
-//       .catch((error) => {
-//         log("error", error);
-//         callback("error");
-//         dispatch(loginFailure(error));
-//       });
-//   };
-// };

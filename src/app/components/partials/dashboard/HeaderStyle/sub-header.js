@@ -23,6 +23,8 @@ import {
   SidebarColorAction,
   getSidebarColorMode,
   getSidebarTypeMode,
+  SubHeaderDataAction,
+  getSubHeaderData,
 } from "../../../../store/setting/setting";
 import { connect } from "react-redux";
 
@@ -34,6 +36,7 @@ const mapStateToProps = (state) => {
     sidebarTypeMode: getSidebarTypeMode(state),
     sidebaractivestyleMode: getSidebarActiveMode(state),
     navbarstylemode: getNavbarStyleMode(state),
+    subHeaderData: getSubHeaderData(state),
   };
 };
 const mapDispatchToProps = (dispatch) => ({
@@ -44,6 +47,7 @@ const mapDispatchToProps = (dispatch) => ({
       SidebarColorAction,
       SidebarActiveStyleAction,
       NavbarstyleAction,
+      SubHeaderDataAction,
     },
     dispatch
   ),
@@ -57,19 +61,22 @@ const SubHeader = (props) => {
   });
   return (
     <>
-      <div className="iq-navbar-header" style={{ height: "215px" }}>
-        <Container fluid className=" iq-container">
+      <div className='iq-navbar-header' style={{ height: "215px" }}>
+        <Container fluid className=' iq-container'>
           <Row>
-            <Col md="12">
-              <div className="d-flex justify-content-between flex-wrap">
-                <div>
-                  <h1>Hello Devs!</h1>
-                  <p>
-                    We are on a mission to help developers like you build
-                    successful projects for FREE.
-                  </p>
-                </div>
-                <div className="d-flex align-items-center">
+            <Col md='12'>
+              <div className='d-flex justify-content-between flex-wrap'>
+                {props.subHeaderData && (
+                  <div>
+                    {props.subHeaderData.title && (
+                      <h1>{props.subHeaderData.title}</h1>
+                    )}
+                    {props.subHeaderData.description && (
+                      <p>{props.subHeaderData.description}</p>
+                    )}
+                  </div>
+                )}
+                {/* <div className="d-flex align-items-center">
                   <Link to="" className="btn btn-link btn-soft-light">
                     <svg
                       width="20"
@@ -90,42 +97,42 @@ const SubHeader = (props) => {
                     </svg>
                     Announcements
                   </Link>
-                </div>
+                </div> */}
               </div>
             </Col>
           </Row>
         </Container>
         {/* {{!-- rounded-bottom if not using animation --}} */}
-        <div className="iq-header-img">
+        <div className='iq-header-img'>
           <img
             src={topHeader}
-            alt="header"
-            className="theme-color-default-img img-fluid w-100 h-100 animated-scaleX"
+            alt='header'
+            className='theme-color-default-img img-fluid w-100 h-100 animated-scaleX'
           />
           <img
             src={topHeader1}
-            alt="header"
-            className=" theme-color-purple-img img-fluid w-100 h-100 animated-scaleX"
+            alt='header'
+            className=' theme-color-purple-img img-fluid w-100 h-100 animated-scaleX'
           />
           <img
             src={topHeader2}
-            alt="header"
-            className="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX"
+            alt='header'
+            className='theme-color-blue-img img-fluid w-100 h-100 animated-scaleX'
           />
           <img
             src={topHeader3}
-            alt="header"
-            className="theme-color-green-img img-fluid w-100 h-100 animated-scaleX"
+            alt='header'
+            className='theme-color-green-img img-fluid w-100 h-100 animated-scaleX'
           />
           <img
             src={topHeader4}
-            alt="header"
-            className="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX"
+            alt='header'
+            className='theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX'
           />
           <img
             src={topHeader5}
-            alt="header"
-            className="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX"
+            alt='header'
+            className='theme-color-pink-img img-fluid w-100 h-100 animated-scaleX'
           />
         </div>
       </div>

@@ -2,6 +2,7 @@
   "name": "hope-ui-react",
   "version": "1.2.1",
   "private": true,
+  "proxy": "http://developer.diptodiagnostic.com/",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@fullcalendar/bootstrap": "^5.9.0",
@@ -16,6 +17,7 @@
     "apexcharts": "^3.27.3",
     "axios": "^0.27.2",
     "bootstrap": "^5.1.0",
+    "dayjs": "^1.11.6",
     "fullcalendar-interaction": "^5.3.3",
     "jquery": "^3.6.0",
     "leaflet": "^1.7.1",
@@ -26,6 +28,7 @@
     "react-bootstrap": "^2.3.1",
     "react-circular-progressbar": "^2.0.4",
     "react-countup": "^5.2.0",
+    "react-device-detect": "^2.2.2",
     "react-dom": "^17.0.2",
     "react-flatpickr": "^3.10.11",
     "react-leaflet": "^3.2.1",
